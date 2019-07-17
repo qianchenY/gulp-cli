@@ -3,6 +3,7 @@ var fs = require('fs'); // 文件操作
 var opn = require('opn'); // 打开浏览器
 var plugins = require('gulp-load-plugins')(); //自动加载gulp插件
 var cleanCSS = require('gulp-clean-css'); // css压缩
+var tinypng = require('gulp-tinypng-nokey'); //压缩图片
 var gulpif = plugins['if']; // 逻辑判断
 var changed = plugins['changed']; // 过滤未变动的文件
 var sass = plugins['sass']; // 编译sass
@@ -92,7 +93,7 @@ function com_build_css(n) {
             outputStyle: 'compact'
         }).on('error', notify.onError("Error: <%= error.message %>")))
         .pipe(autoprefixer('> 0.01%'))
-        .pipe(cleanCSS())
+        //.pipe(cleanCSS())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(DEST_CSS))
         .pipe(connect.reload());
@@ -193,6 +194,7 @@ gulp.task('build_img', function (done) {
         //   interlaced: true,       //类型：Boolean 默认：false 隔行扫描gif进行渲染
         //   multipass: true         //类型：Boolean 默认：false 多次优化svg直到完全优化
         // }))
+        // .pipe(tinypng())
         .pipe(gulp.dest(DEST_IMG))
         .pipe(connect.reload());
 
