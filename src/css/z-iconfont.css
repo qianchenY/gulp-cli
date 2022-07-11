@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3492599 */
+  src: url('../fonts/iconfont.eot?t=1656574019820'); /* IE9 */
+  src: url('../fonts/iconfont.eot?t=1656574019820#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/iconfont.woff2?t=1656574019820') format('woff2'),
+       url('../fonts/iconfont.woff?t=1656574019820') format('woff'),
+       url('../fonts/iconfont.ttf?t=1656574019820') format('truetype'),
+       url('../fonts/iconfont.svg?t=1656574019820#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e624";
+}
+
+.icon-edit:before {
+  content: "\e611";
+}
+
+.icon-facebook:before {
+  content: "\e620";
+}
+
+.icon-pinterest:before {
+  content: "\e8ab";
+}
+
+.icon-linkedin:before {
+  content: "\e648";
+}
+
+.icon-youtube:before {
+  content: "\e6d6";
+}
+
+.icon-twitter:before {
+  content: "\e607";
+}
+
+.icon-bigger:before {
+  content: "\e647";
+}
+
+.icon-left:before {
+  content: "\e72c";
+}
+
+.icon-right:before {
+  content: "\e72d";
+}
+
+.icon-up1:before {
+  content: "\e72e";
+}
+
+.icon-bottom1:before {
+  content: "\e72f";
+}
+
+.icon-left1:before {
+  content: "\e730";
+}
+
+.icon-right1:before {
+  content: "\e731";
+}
+
+.icon-up:before {
+  content: "\e73e";
+}
+
+.icon-bottom:before {
+  content: "\e73f";
+}
+
+.icon-instagram:before {
+  content: "\e79d";
+}
+
+.icon-tumblr:before {
+  content: "\e79e";
+}
+
+.icon-download:before {
+  content: "\e7a0";
+}
+
+.icon-download1:before {
+  content: "\e7a7";
+}
+
+.icon-search4:before {
+  content: "\e7b2";
+}
+
+.icon-address:before {
+  content: "\e7bc";
+}
+
+.icon-email:before {
+  content: "\e7bd";
+}
+
+.icon-contact:before {
+  content: "\e7be";
+}
+
+.icon-whatsapp:before {
+  content: "\e7bf";
+}
+
+.icon-fax:before {
+  content: "\e7c2";
+}
+
+.icon-mobile:before {
+  content: "\e7c6";
+}
+
+.icon-phone:before {
+  content: "\e7c8";
+}
+
+.icon-tel:before {
+  content: "\e7c7";
+}
+
+.icon-phone1:before {
+  content: "\e7cb";
+}
+
+.icon-skype:before {
+  content: "\e7cc";
+}
+
+.icon-whatsapp1:before {
+  content: "\e7c1";
+}
+
+.icon-address1:before {
+  content: "\e7c3";
+}
+
+.icon-contact1:before {
+  content: "\e7c4";
+}
+
+.icon-email1:before {
+  content: "\e7c5";
+}
+
+.icon-skype1:before {
+  content: "\e7c9";
+}
+
+.icon-fax1:before {
+  content: "\e7ca";
+}
+
+.icon-qq:before {
+  content: "\e7ce";
+}
+
+.icon-tel1:before {
+  content: "\e7cd";
+}
+
+.icon-wechat:before {
+  content: "\e7cf";
+}
+
+.icon-phone2:before {
+  content: "\e7d0";
+}
+
+.icon-message:before {
+  content: "\e7da";
+}
+
+.icon-calendar:before {
+  content: "\e7e1";
+}
+
+.icon-calendar1:before {
+  content: "\e7e3";
+}
+
+.icon-top:before {
+  content: "\e7ed";
+}
+
+.icon-youbian:before {
+  content: "\e60f";
+}
+
+.icon-jian2:before {
+  content: "\e600";
+}
+
+.icon-jia2:before {
+  content: "\e608";
+}
+
+.icon-vk:before {
+  content: "\e735";
+}
+
+.icon-instagram1:before {
+  content: "\e640";
+}
+
+.icon-up7:before {
+  content: "\e722";
+}
+
+.icon-bottom7:before {
+  content: "\e723";
+}
+
+.icon-left7:before {
+  content: "\e724";
+}
+
+.icon-right7:before {
+  content: "\e725";
+}
+
+.icon-sousuo4:before {
+  content: "\e610";
+}
+
+.icon-sousuo:before {
+  content: "\e616";
+}
+
+.icon-sousuo1:before {
+  content: "\e65b";
+}
+
+.icon-shangchuan:before {
+  content: "\e602";
+}
+
+.icon-top2:before {
+  content: "\e637";
+}
+

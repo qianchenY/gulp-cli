@@ -1,0 +1,40 @@
+    <!-- .banner start -->
+    <div class="banner <%= !isHome ? 'hide' : '' %>">
+        <div class="slide" id="banner">
+            <div class="carouse">
+                <% for(var i = 0; i < 4; i++){ %>
+                <div class="slideItem" onclick="window.location.href=''">
+                    <img class="banner-img" src="./images/banner-1.jpg">
+                </div>
+                <% } %>
+                <a class="carousel-control left Next">
+                    <i class="iconfont icon-left1"></i>
+                </a>
+                <a class="carousel-control right Previous">
+                    <i class="iconfont icon-right1"></i>
+                </a>
+            </div>
+            <div class="dotList"></div>
+        </div>
+    </div>    
+    <% if(!isHome){ %>
+    <div class="banner n-banner">
+        <div class="slide" id="nbanner">
+            <div class="carouse">
+                <% for(var i = 0; i < 4; i++){ %>
+                <div class="slideItem" onclick="window.location.href=''">
+                    <img class="banner-img" src="./images/n-banner.jpg">
+                </div>
+                <% } %>
+                <a class="carousel-control left Next">
+                    <i class="iconfont icon-left1"></i>
+                </a>
+                <a class="carousel-control right Previous">
+                    <i class="iconfont icon-right1"></i>
+                </a>
+            </div>
+            <div class="dotList dotList2"></div>
+        </div>
+    </div>  
+    <% } %>
+    <!-- .banner end -->
