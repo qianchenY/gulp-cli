@@ -575,13 +575,8 @@ em,i{
 
 	.table{ 
 		width:100%;  
-		overflow-x:scroll;
+		overflow-x:auto;
 	}
-	
-	.table >div{ 
-		width:991px !important;
-		max-width: 991px;
-	}	
 }
 
 @media screen and (max-width: 991px){
