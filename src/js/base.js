@@ -102,7 +102,7 @@ $(function(){
     // baguetteBox end
 	
 	// .table start
-	$("table").wrap("<div class='table'><div></div></div>");
+	$("table").wrap("<div class='table'></div>");
 	// .table end
     // .j-listscroll start
     $(".j-listscroll").DY_scroll();
