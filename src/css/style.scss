@@ -240,23 +240,13 @@ em,i{
 }  
 
 .f-box{
-    margin: 0 auto;
-    width: $width;
-	max-width: 100%;
-    overflow: visible;
-	box-sizing: border-box;
-}
-
-
-@media screen and (max-width:1219px){
-    .f-box{
-        width: 960px;
-    }
+	width: calc(100% - 120px);
+	max-width: $width;
+	margin: auto;
 }
 
 @media screen and (max-width:991px){
     .f-box{
-        width: 720px;
         max-width: 96%;
     }
 }
