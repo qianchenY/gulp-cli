@@ -39,7 +39,8 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                     mClickName: "",
                     loop: true,
                     cb: null,
-                    showNum: false
+                    showNum: false,
+                    autoHeight: false
                 }, o);
 
                 l.prev= i.find(l.prev);
@@ -52,7 +53,79 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                     count = 1,
                     total = Math.round(l.list.parent().outerWidth() / t) - 1,
                     s = e.length,
+                    clientNum = getClientNum();
                     scrollFX;
+
+                if(o.autoHeight) initHeight(), changeHeight(0, clientNum, true);
+
+				function initHeight(){
+					e.each(function(){
+						let _this =$(this),
+							$img = _this.find('img'),
+							$h = _this.outerHeight(true);
+
+						_this.data('height', $h);
+
+						if($img.length > 0){
+							$img.each(function(){
+								let img = $(this)[0];
+
+								if(img.complete){
+									$h = _this.outerHeight(true);
+		
+									_this.data('height', $h);
+								}else{
+									img.onload = function(){
+										$h = _this.outerHeight(true);
+		
+										_this.data('height', $h);
+									}
+		
+									img.onerror = function(){
+										$h = _this.outerHeight(true);
+		
+										_this.data('height', $h);
+									}
+								}
+							})
+
+						}
+					})
+				}
+
+				function changeHeight(start, clientNum, isImg){
+
+					for(let i = start, height = 0; i < clientNum; i++){
+						let $item = l.list.find(l.item).eq(i),
+							$img = $item.find('img'),
+							$h = $item.data('height');
+
+							if($h > height){
+								height = $h;
+								l.list.css('height', height);
+							}
+					}
+				}
+				
+				function getClientNum(){
+					let $item = l.list.find(l.item),
+						$w1 = l.list.parent().outerWidth(true),
+						$w2 = 0,
+						$page = 0;
+					for(let i = 0; i < $item.length; i++){
+						let _this = $item.eq(0),
+							$w = _this.outerWidth(false);
+
+						$w2 = $w2 + $w;
+
+						if($w2 <= $w1){
+							$page++;
+						}else{
+							return $page;
+						}
+					}
+				}
+
                 if (s >= l.num) {
                     if (l.toggle) {
                         l.next.click(function () {
@@ -83,6 +156,8 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                         } else {
                             count++
                         }
+                        if(l.autoHeight) changeHeight(1, clientNum + 1, false);
+
                         t = l.list.find(l.item).outerWidth(true);
                         l.list.animate({
                             "margin-left": -t
@@ -107,6 +182,8 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                         } else {
                             count--
                         }
+                        if(l.autoHeight) changeHeight(-1, clientNum - 1, false);
+
                         t = l.list.find(l.item).outerWidth(true);
                         l.list.find(l.item + ":last").prependTo(l.list);
                         l.list.css({

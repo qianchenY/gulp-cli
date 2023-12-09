@@ -106,6 +106,7 @@ $(function(){
 	// .table end
     // .j-listscroll start
     $(".j-listscroll").DY_scroll();
+    $(".j-listscroll2").DY_scroll({auto: true});
     // .j-listscroll end	
 
     // .j-nextshow start
@@ -276,7 +277,3 @@ $(function(){
     // .j-modalshow end
 	
 })
-
-//$(window).load(function(){
-    //$("#siteWelcome").removeClass("active");
-//})
