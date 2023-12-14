@@ -53,10 +53,10 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                     count = 1,
                     total = Math.round(l.list.parent().outerWidth() / t) - 1,
                     s = e.length,
-                    clientNum = getClientNum();
+                    clientNum = getClientNum(),
                     scrollFX;
 
-                if(o.autoHeight) initHeight(), changeHeight(0, clientNum, true);
+                if(l.autoHeight) initHeight(), changeHeight(0, clientNum, true);
 
 				function initHeight(){
 					e.each(function(){
