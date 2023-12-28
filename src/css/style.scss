@@ -230,6 +230,20 @@ em,i{
     background: none !important;
 }	
 
+.c-scrollbar{
+    padding-right: 10px;
+
+    &::-webkit-scrollbar {
+        width: 4px;   
+        border-radius: 2px;  
+        background-color: #dddddd;  
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;  
+        background-color: $color;  
+    }
+}
 /* .c-xx end */
 
 /* .f-xx start */
