@@ -1,40 +1,41 @@
     <!-- .banner start -->
     <div class="banner <%= !isHome ? 'hide' : '' %>">
-        <div class="slide" id="banner">
-            <div class="carouse">
-                <% for(var i = 0; i < 4; i++){ %>
-                <div class="slideItem" onclick="window.location.href=''">
-                    <img class="banner-img" src="./images/banner-1.jpg">
-                </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <% for(var i = 0; i < 3; i++){ %>
+                    <div class="swiper-slide">
+                        <a href="" title="">
+                            <img class="banner-img" src="./images/banner-1.jpg">
+                        </a>
+                    </div>    
                 <% } %>
-                <a class="carousel-control left Next">
-                    <i class="iconfont icon-left1"></i>
-                </a>
-                <a class="carousel-control right Previous">
-                    <i class="iconfont icon-right1"></i>
-                </a>
             </div>
-            <div class="dotList"></div>
+            <div class="swiper-button-next">
+                <i class="iconfont icon-left1"></i>
+            </div>
+            <div class="swiper-button-prev">
+                <i class="iconfont icon-right1"></i>
+            </div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>    
-    <% if(!isHome){ %>
-    <div class="banner n-banner">
-        <div class="slide" id="nbanner">
-            <div class="carouse">
-                <% for(var i = 0; i < 4; i++){ %>
-                <div class="slideItem" onclick="window.location.href=''">
-                    <img class="banner-img" src="./images/n-banner.jpg">
-                </div>
-                <% } %>
-                <a class="carousel-control left Next">
-                    <i class="iconfont icon-left1"></i>
-                </a>
-                <a class="carousel-control right Previous">
-                    <i class="iconfont icon-right1"></i>
-                </a>
-            </div>
-            <div class="dotList dotList2"></div>
-        </div>
-    </div>  
-    <% } %>
+    <script>
+        var swiper = new Swiper(".banner .swiper", {
+            slidesPerView: 1,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+        });
+    </script>
     <!-- .banner end -->
