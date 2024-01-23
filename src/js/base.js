@@ -170,55 +170,6 @@ $(function(){
 
     })
     // .j-nextshow end
-	
-	//.j-hoverbg start
-    $(".j-hoverbg").each(function(){
-        var _this = $(this),
-            $src1 = _this.data("src1"),
-            $src2 = _this.data("src2"),
-            $isLink = _this.data("islink"),
-            $el = _this.data("el") || _this;
-
-        $el.data("flag", 0);
-
-        if($el.hasClass("active")){
-            $el.css("background-image", 'url(' + $src2 +')');
-            $el.data("flag", 1);
-        }
-        
-        $el.hover(function(){
-            var _this = $(this);
-    
-            _this.css("background-image", 'url(' + $src2 +')');
-        },function(){
-            var _this = $(this);
-    
-            if(_this.data("flag") == 1) return;
-
-            _this.css("background-image", 'url(' + $src1 +')');
-        })
-
-        if(!$isLink || $isLink == 'false'){
-            $el.click(function(e){
-                e.preventDefault();
-                var _this = $(this);
-
-                setTimeout(function(){
-                    if(_this.hasClass("active")){
-                        _this.css("background-image", 'url(' + $src2 +')').siblings().each(function(){
-                            $(this).removeClass("active").css("background-image", 'url(' + $(this).data("src1") +')');
-                            $(this).data("flag", 0);
-                        });
-                        _this.data("flag", 1);
-                    }else{
-                        _this.css("background-image", 'url(' + $src1 +')');
-                        _this.data("flag", 0);
-                    }
-                })
-            })
-        }
-    })
-    //.j-hoverbg end
     
     // .j-select start
     $(".j-select .select-item a").click(function(e){
@@ -276,4 +227,29 @@ $(function(){
     })
     // .j-modalshow end
 	
+    // .j-hdata start
+    if($(".j-hdata").length > 0){
+        $(window).scroll(function(){
+            var _this = $(this),
+                $sTop = _this.scrollTop(),
+                $height = _this.innerHeight(),
+                $dom = $(".j-hdata"),
+                $oTop = $dom.offset().top,
+                $item = $dom.find(".item-num");
+            if($sTop + $height >= $oTop){
+                $item.each(function(){
+                    var _this = $(this),
+                        $num = parseInt(_this.data("num"));
+                    
+                    _this.animate({count: $num}, {
+                        duration: 2000,
+                        step: function(){
+                            _this.text(Math.round(this.count));
+                        }
+                    })
+                })
+            }
+        })
+    }
+    // .j-hdata end
 })

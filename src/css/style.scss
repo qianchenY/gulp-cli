@@ -556,13 +556,11 @@ em,i{
 .table table{ 
 	width:100%; 
 	border-collapse:collapse; 
-	line-height:22px; 
 	border:1px solid #ccc;
 }
 
 .table table tr td{ 
 	padding:10px; 
-	height: 30px;
 	border:1px solid #ccc;
 }
 
@@ -571,6 +569,10 @@ em,i{
 	.table{ 
 		width:100%;  
 		overflow-x:auto;
+        
+        table{
+            min-width: 640px;
+        }
 	}
 }
 /* .m-xx end */
