@@ -562,6 +562,7 @@ em,i{
 .table table tr td{ 
 	padding:10px; 
 	border:1px solid #ccc;
+    word-break: break-word;
 }
 
 @media screen and (max-width: 991px){
