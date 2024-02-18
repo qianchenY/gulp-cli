@@ -18,10 +18,10 @@ const {task, src, dest, parallel, watch, series} = require('gulp'), // gulp
     //babel = plugins['babel'], // es5转es6
     sourcemaps = plugins['sourcemaps'], // 生成.map文件
     concat = plugins['concat'], // 合并文件
-    clean = plugins['clean'], // 清除文件
-    imagemin = require('gulp-imagemin'), //压缩图片
-    pngquant = require('imagemin-pngquant'), //压缩PNG
-    cwebp = require('gulp-cwebp'); //cwebp
+    clean = plugins['clean']; // 清除文件
+    // imagemin = require('gulp-imagemin'), //压缩图片
+    // pngquant = require('imagemin-pngquant'), //压缩PNG
+    // cwebp = require('gulp-cwebp'); //cwebp
 
 
 // src
@@ -212,35 +212,6 @@ task('build_fonts', (done)=> {
     done();
 });
 
-// 生成 .webp
-task('cwebp', (done)=> {
-    src('src/images/**')
-      .pipe(cwebp())
-      .pipe(dest('dist/images/'));
-    
-    done();
-});
-
-// 图片压缩
-task('imagemin', (done) => {
-    src(SRC_IMG)
-    .pipe(imagemin([
-        imagemin.gifsicle({interlaced: true}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-        imagemin.optipng({optimizationLevel: 5}),
-        imagemin.svgo({
-            plugins: [
-                {removeViewBox: true},
-                {cleanupIDs: false}
-            ]
-        }),
-        pngquant()
-    ]))
-    .pipe(dest(DEST_IMG));
-
-    done();
-});
-
 // 所有监听
 task('watch_all',
     parallel('build_html', 'build_js', 'build_css', 'build_img', 'build_fonts', (done)=> {
@@ -269,7 +240,7 @@ task('watch_all',
 );
 
 // 发布到生产环境
-task('build_project', parallel('concat_css', 'uglify_js', 'imagemin', (done)=> {
+task('build_project', parallel('concat_css', 'uglify_js', (done)=> {
     done();
 }));
 
