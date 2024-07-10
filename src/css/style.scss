@@ -143,7 +143,6 @@ em,i{
     width: $width;
 }
 
-
 .c-tsn{
     @include transition;
 }
@@ -155,14 +154,6 @@ em,i{
 .c-pr{
     position: relative;
 } 
-
-@for $i from 5 through 50 { 
-    @if($i % 5 == 0){
-        .c-mt-#{$i} { 
-            margin-top: $i + 0px; 
-        }             
-    }
-}
 
 .c-nomt{
     margin: {
@@ -665,23 +656,10 @@ em,i{
 
     .item-title{
         overflow: hidden;
-
-        a{
-            &:hover{
-                color: $color;
-            }
-        }
     }
 
     .item-desc{
         overflow: hidden;
-
-        a{
-            display: block;
-            &:hover{
-                color: $color;
-            }
-        }
     }
 }
 
@@ -699,7 +677,7 @@ em,i{
 
 // .m-crm start
 .m-crm{
-    margin-top: 10px;
+    padding-top: 10px;
     line-height: 30px;
     @include font-size(14);
     color: #666;
@@ -791,26 +769,20 @@ em,i{
         box-sizing: border-box;
         @include transition;
         padding: 0 5px;
-        
-        &.big{
-            min-width: 84px;
-        }
+    }
 
+    .big{
+        min-width: 84px;
     }
 
     a{
                 
-        &:hover{
+        &:hover, &.active{
             color: white;
             border-color: $color;
             background-color: $color;
         }
         
-        &.active{
-            color: white;
-            border-color: $color;
-            background-color: $color;
-        }
     }
 
     .page-form{
@@ -837,14 +809,14 @@ em,i{
     position: relative;
 }
 
-@media screen and (max-width: 991px){
+@media screen and (max-width: 1219px){
     .m-page{
         margin-top: 45px;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
         
-        a{
+        a, span{
             margin: {
                 left: 5px;
                 right: 5px;
@@ -991,6 +963,7 @@ em,i{
 
     iframe{
         position: absolute;
+        z-index: 2;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -998,6 +971,18 @@ em,i{
         height: 600px;
         max-width: 90%;
         max-height: 80%;
+    }
+
+    &:after{
+        content: "\e69d";
+        font-family: "iconfont";
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 3;
+        line-height: 1;
+        @include font-size(20);
+        color: #fff;
     }
 }
 // .j-videoshow end
