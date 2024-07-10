@@ -974,14 +974,15 @@ em,i{
     }
 
     &:after{
-        content: "\e69d";
-        font-family: "iconfont";
+        content: "+";
         position: absolute;
         right: 10px;
         top: 10px;
         z-index: 3;
         line-height: 1;
-        @include font-size(20);
+        @include font-size(30);
+        transform: rotate(45deg);
+        cursor: pointer;
         color: #fff;
     }
 }
