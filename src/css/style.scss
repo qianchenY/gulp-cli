@@ -234,6 +234,15 @@ em,i{
         background-color: $color;  
     }
 }
+
+.g-bd{
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    max-width: 1920px;
+    width: 100%;
+}
 /* .c-xx end */
 
 /* .f-xx start */
@@ -689,11 +698,11 @@ em,i{
             color: $color;
         }
 
-        &.active{
-            color: $color;
-        }
     }
-    
+
+    .active{
+        color: $color;
+    }
 }
 // .m-crm end
 
@@ -733,10 +742,6 @@ em,i{
 
     .oths-item-2{
         background-image: url('../images/oths2.png');
-    }
-
-    a{
-        color: #666666;
     }
 }
 // .m-oths end
@@ -811,7 +816,7 @@ em,i{
 
 @media screen and (max-width: 1219px){
     .m-page{
-        margin-top: 45px;
+        margin-top: 35px;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -824,9 +829,6 @@ em,i{
             };
         }
     }  
-    
-    .m-page2{
-    }
 }
 //.m-page end
 
@@ -842,10 +844,10 @@ em,i{
         display: block;
         line-height: 0;
         font-size: 0;
-        width: 70px;
-        line-height: 70px;
+        width: 50px;
+        line-height: 50px;
         margin-bottom: 1px;
-        @include font-size(30);
+        @include font-size(20);
         color: #fff;
         text-align: center;
         background-color: #2d2d27;
@@ -890,8 +892,8 @@ em,i{
         .kf-item{
             width: 20%;
             text-align: center;
-            line-height: 60px;
-            @include font-size(26);
+            line-height: 50px;
+            @include font-size(20);
             background-color: #2d2d27 !important;
         }
 		
@@ -915,7 +917,7 @@ em,i{
     }
 
     .g-ft{
-        padding-bottom: 63px;
+        padding-bottom: 53px;
     }
 }
 // .m-kf end
