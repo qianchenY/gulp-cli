@@ -235,7 +235,7 @@ $(function(){
                 $height = _this.innerHeight(),
                 $dom = $(".j-hdata"),
                 $oTop = $dom.offset().top,
-                $item = $dom.find(".item-num");
+                $item = $dom.find(".num");
             if($sTop + $height >= $oTop){
                 $item.each(function(){
                     var _this = $(this),
@@ -244,7 +244,7 @@ $(function(){
                     _this.animate({count: $num}, {
                         duration: 2000,
                         step: function(){
-                            _this.text(Math.round(this.count));
+                            _this.text(Math.round(this.count).toLocaleString('en-US', {groupingSeparator: ','}));
                         }
                     })
                 })
