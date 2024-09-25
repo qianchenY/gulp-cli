@@ -246,16 +246,13 @@ em,i{
 /* .c-xx end */
 
 /* .f-xx start */
-.f-czjz {
-    position: relative;
-    top: 50%;
-    transform: translate(0px, -50%);
-}  
-
 .f-box{
-	width: calc(100% - 120px);
+	width: calc(100% - 200px);
 	max-width: $width;
-	margin: auto;
+    margin: {
+        left: auto;
+        right: auto;
+    };
 }
 
 @media screen and (max-width:991px){
