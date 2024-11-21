@@ -104,10 +104,6 @@ $(function(){
 	// .table start
 	$("table").wrap("<div class='table'></div>");
 	// .table end
-    // .j-listscroll start
-    $(".j-listscroll").DY_scroll();
-    $(".j-listscroll2").DY_scroll({auto: true});
-    // .j-listscroll end	
 
     // .j-nextshow start
     $(".j-nextshow").each(function(){

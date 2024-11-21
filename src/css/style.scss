@@ -21,7 +21,10 @@ html{
 }
 
 body {
-    margin:0 auto;
+    margin: {
+        left: auto;
+        right: auto;
+    };
     width: 100%;
     overflow-x: hidden;
     font-family: arial, helvetica, sans-serif;
@@ -79,6 +82,10 @@ input, textarea{
 
 input{
         
+    &[type="button"]{
+        cursor: pointer;
+    }
+        
     &[type="submit"]{
         cursor: pointer;
     }
@@ -111,14 +118,6 @@ em,i{
 
     
 /* .c-xx start */
-.c-fl{
-    @include float;
-}
-
-.c-fr{
-    @include float(right);
-}
-
 .c-cb{
     clear: both;
 }
@@ -139,73 +138,17 @@ em,i{
     overflow: hidden;
 }
 
-.c-wd{
-    width: $width;
-}
-
 .c-tsn{
     @include transition;
-}
-
-.c-bbx{
-    box-sizing: border-box;
 }
 
 .c-pr{
     position: relative;
 } 
 
-.c-nomt{
-    margin: {
-        top: 0 !important;
-    };
-}
-
-.c-nomr{
-    margin: {
-        right: 0 !important;
-    };
-}
-
-.c-nomb{
-    margin: {
-        bottom: 0 !important;
-    };
-}
-
-.c-noml{
-    margin: {
-        left: 0 !important;
-    };
-}  
-
 .c-nomg{
     margin: 0 !important;
 }  
-
-.c-nopt{
-    padding: {
-        top: 0 !important;
-    };
-}
-
-.c-nopr{
-    padding: {
-        right: 0 !important;
-    };
-}
-
-.c-nopb{
-    padding: {
-        bottom: 0 !important;
-    };
-}
-
-.c-nopl{
-    padding: {
-        left: 0 !important;
-    };
-} 
 
 .c-nopd{
     padding: 0 !important;
@@ -235,14 +178,6 @@ em,i{
     }
 }
 
-.g-bd{
-    margin: {
-        left: auto;
-        right: auto;
-    };
-    max-width: 1920px;
-    width: 100%;
-}
 /* .c-xx end */
 
 /* .f-xx start */
@@ -261,6 +196,22 @@ em,i{
         width: 100%;
     }
 }
+
+.g-bd{
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    max-width: 1920px;
+    width: 100%;
+}
+
+.banner{
+    img{
+        width: 100%;
+    }
+}
+
 /* .f-xx end */
 
 /* @keyframes start */
@@ -283,7 +234,7 @@ em,i{
     position: relative;
     overflow: hidden;
     
-    &:before{
+    &:before, &:after{
         content: "";
         position: absolute;
         left: 0;
@@ -291,24 +242,19 @@ em,i{
         width: 100%;
         height: 100%;
         background-color: rgba($color: #fff, $alpha: .1);
-        z-index: 2;
-        transform: scaleX(0);
+
         @include transition();
         visibility: hidden;
     }
 
+    &:before{
+        z-index: 2;
+        transform: scaleX(0);
+    }
+
     &:after{
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba($color: #fff, $alpha: .1);
         z-index: 1;
         transform: scaleY(0);
-        @include transition();
-        visibility: hidden;
     }
 
     img{
@@ -319,6 +265,7 @@ em,i{
         img{
             transform: scale(1.1);
         }
+
         &:before{
             visibility: visible;
             transform: scaleX(1);
@@ -330,104 +277,10 @@ em,i{
     }
 }
 
-.an-hoverimg-beforex{
-    position: relative;
-    overflow: hidden;
-    
-    &:before{
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba($color: #fff, $alpha: .1);
-        z-index: 2;
-        transform: scaleX(0);
-        @include transition();
-        visibility: hidden;
-    }
-
-    img{
-        @include transition();
-    }
-
-    &:hover{
-        img{
-            transform: scale(1.1);
-        }
-        &:before{
-            visibility: visible;
-            transform: scaleX(1);
-        }
-    }
-}
-
-.an-hoverimg-beforey{
-    position: relative;
-    overflow: hidden;
-    
-    &:before{
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba($color: #fff, $alpha: .1);
-        z-index: 2;
-        transform: scaleY(0);
-        @include transition();
-        visibility: hidden;
-    }
-
-    img{
-        @include transition();
-    }
-
-    &:hover{
-        img{
-            transform: scale(1.1);
-        }
-        &:before{
-            visibility: visible;
-            transform: scaleY(1);
-        }
-    }
-}
-
-.an-hoverbtn-beforey{
-    position: relative;
-
-    >*{
-        position: relative;
-    }
-
-    &:before{
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        transform: scaleY(0);
-        background-color: $color;
-        @include transition();
-    }
-
-    &:hover{
-        color: #fff;
-
-        &:before{
-            transform: scaleY(1);
-        }
-    }
-}
-
 .an-hoverbtn-beforex{
     position: relative;
 
-    >*{
+    em, span, i{
         position: relative;
     }
 
@@ -448,34 +301,6 @@ em,i{
 
         &:before{
             transform: scaleX(1);
-        }
-    }
-}
-
-.an-hoverbtn-beforer{
-    position: relative;
-    overflow: hidden;
-
-    >*{
-        position: relative;
-    }
-
-    &:before{
-        content: "";
-        position: absolute;
-        right: 100%;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $color;
-        @include transition();
-    }
-
-    &:hover{
-        color: #fff;
-
-        &:before{
-            right: 0;
         }
     }
 }
@@ -576,7 +401,7 @@ em,i{
 .m-ftname{
     display: none;
     line-height: 24px;
-    @include font-size(20);
+    @include font-size(18);
     position: relative;
     padding-right: 20px;
     max-width: 300px;
@@ -662,7 +487,7 @@ em,i{
 }
 
 .j-lazy{
-    min-width: 100%;
+    width: 100%;
 }
 /* .j-xx end */
 
@@ -922,12 +747,16 @@ em,i{
         }
 		
 		.kf-item2{
-			position: relative;
+			position: static;
 		}
 
         .kf-wx{
             bottom: 100%;
-            right: 0;
+            right: auto;
+            left: 0;
+            width: 100vw;
+            text-align: center;
+            background-color: #fff;
         }
 
         .gotop{
