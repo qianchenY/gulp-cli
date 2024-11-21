@@ -754,9 +754,14 @@ em,i{
             bottom: 100%;
             right: auto;
             left: 0;
+            padding: 5px;
             width: 100vw;
             text-align: center;
             background-color: #fff;
+
+            img{
+                width: 140px;
+            }
         }
 
         .gotop{
