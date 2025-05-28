@@ -81,15 +81,6 @@ input, textarea{
 }
 
 input{
-        
-    &[type="button"]{
-        cursor: pointer;
-    }
-        
-    &[type="submit"]{
-        cursor: pointer;
-    }
-    
     &[type="checkbox"]{
         cursor: pointer;
     }
@@ -209,15 +200,6 @@ em,i{
         max-width: 96%;
         width: 100%;
     }
-}
-
-.g-bd{
-    margin: {
-        left: auto;
-        right: auto;
-    };
-    max-width: 1920px;
-    width: 100%;
 }
 
 .banner{
@@ -716,12 +698,8 @@ em,i{
         background-color: #2d2d27;
         border-radius: 5px;
 
-        &:hover{
+        &:hover, &.active{
             color: #fff;
-            background-color: $color;
-        }
-
-        &.active{
             background-color: $color;
         }
     }
@@ -796,7 +774,6 @@ em,i{
 // .returntop start
 .returntop{
     position: fixed;
-    *position: absolute;
     z-index: 9;
     right: 6px;
     bottom: 150px;
