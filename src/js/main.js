@@ -384,6 +384,70 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
     $(".j-boxtab2").boxTab(0, "mouseenter");
 })($);
 
+// formcountry
+$.fn.extend({
+    country: function () {
+        var n = $(this);
+        n.each(function () {
+            var _this = $(this),
+                $ul = _this.find('ul'),
+                $input = _this.find('input');
+            
+            _this.click(function(e){
+                $(this).find("ul").show();
+                e.stopPropagation();
+            });
+            
+            $ul.on('mouseover mouseout', 'li' ,function(e){
+                $(this).toggleClass("on");
+                e.stopPropagation();
+            });
+            
+            $ul.on('click', 'li' ,function(e){
+                var _this = $(this),
+                    val = _this.text();
+                if ($input.data('portion') == 'portion') {
+                    if (val.indexOf('--') != -1) 
+                        val = val.substring(0, val.indexOf('--'));
+                }
+                $input.val(val);
+                $ul.hide();
+                e.stopPropagation();
+            });
+            
+            $input.on('input', function(){
+                var count = 0,
+                    strValue = $input.val();
+                if (strValue != "") {
+                    $ul.children("li").each(function(i) {
+                        var contentValue = $(this).text();
+                        if (contentValue.toLowerCase().indexOf(strValue.toLowerCase()) < 0) {
+                            $(this).hide();
+                            count++;
+                        } else {
+                            $(this).show();
+                        }
+                        if (count == (i + 1)) {
+                            $ul.hide();
+                        } else {
+                            $ul.show();
+                        }
+                    });
+                } else {
+                    $ul.children("li").each(function() {
+                        $(this).show();
+                    });
+                }
+            })
+
+        });
+
+        $(document).click(function(){
+            n.find("ul").hide();
+        });
+    },
+});
+$('.m-formcountry').country();
 // nav.js
 (function() {
 	// .m-mobilenav start
