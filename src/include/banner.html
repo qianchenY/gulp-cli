@@ -1,5 +1,5 @@
     <!-- .banner start -->
-    <div class="banner <%= !isHome ? 'hide' : '' %>">
+    <div class="banner">
         <div class="swiper">
             <div class="swiper-wrapper">
                 <% for(var i = 0; i < 3; i++){ %>
@@ -10,13 +10,13 @@
                     </div>    
                 <% } %>
             </div>
-            <div class="swiper-button-prev">
+            <div class="swiper-button-prev box-btn prev">
                 <i class="iconfont icon-left1"></i>
             </div>
-            <div class="swiper-button-next">
+            <div class="swiper-button-next box-btn next">
                 <i class="iconfont icon-right1"></i>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination box-page"></div>
         </div>
     </div>    
     <!-- <style>
