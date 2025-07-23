@@ -241,7 +241,6 @@ em,i{
         width: 100%;
         height: 100%;
         background-color: rgba($color: #fff, $alpha: .1);
-
         @include transition();
         visibility: hidden;
     }
@@ -322,11 +321,7 @@ em,i{
             text-decoration: underline;
         }
     }
-    
-	p{
-		min-height: 30px;
-	}
-    
+
     img{ 
         max-width: 100%; 
     }
@@ -350,11 +345,10 @@ em,i{
         padding:10px; 
         border:1px solid #ccc; 
         background:#fff;
-        font-size:14px;
-        font-size:1.4rem;
+        @include font-size(14);
     } 
 	
-	@media screen and (max-width: 1219px){
+	@media screen and (max-width: 1440px){
 		@include font-size(14);
 		line-height: 24px;
 
@@ -660,7 +654,7 @@ em,i{
     position: relative;
 }
 
-@media screen and (max-width: 1219px){
+@media screen and (max-width: 1440px){
     .m-page{
         margin-top: 35px;
         display: flex;
