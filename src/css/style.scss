@@ -410,6 +410,7 @@ em,i{
     @include font-size(18);
     position: relative;
     padding-right: 20px;
+    font-weight: bold;
 
     &:after{
         content: "+";

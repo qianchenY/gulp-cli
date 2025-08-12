@@ -379,7 +379,7 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
             })
         }
     });
-    $(".j-boxtab").boxTab(350, "click");
+    $(".j-boxtab").boxTab(500, "click");
     $(".j-boxtab1").boxTab(0, "click");
     $(".j-boxtab2").boxTab(0, "mouseenter");
 })($);

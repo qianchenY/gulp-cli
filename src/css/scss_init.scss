@@ -18,7 +18,7 @@ $color: #333;
     };
 }
 
-@mixin transition($type: all, $time: 550ms){
+@mixin transition($type: all, $time: 500ms){
     transition: $type $time;
 }
 

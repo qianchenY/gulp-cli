@@ -241,11 +241,32 @@ $(function(){
                         duration: 2000,
                         step: function(){
                             _this.text(Math.round(this.count).toLocaleString('en-US', {groupingSeparator: ','}));
-                        }
+                        },
+                        complete: function(){
+                            _this.text($num.toLocaleString('en-US', {groupingSeparator: ','}));
+                        },
                     })
                 })
             }
         })
     }
     // .j-hdata end
+    // .j-sdnav start
+    $('.j-sdnav .nav-item .iconfont').click(function(e){
+        e.stopPropagation();
+        e.preventDefault();
+    
+        var _this = $(this),
+            $a = _this.parent('a'),
+            $ul = $a.next();
+    
+        if($a.hasClass('active')){
+            $a.removeClass('active');
+            $ul.slideUp();
+        }else{
+            $a.addClass('active');
+            $ul.slideDown();
+        }
+    })
+    // .j-sdnav end
 })
