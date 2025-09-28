@@ -508,6 +508,7 @@ em,i{
 
         img{
             @include transition;
+            width: 100%;
         }
 
         &:hover{
@@ -615,7 +616,7 @@ em,i{
         margin: {
             left: 5px;
             right: 5px;
-            bottom: 5px;
+            bottom: 10px;
         };
         @include inline-block();
         min-width: 35px;

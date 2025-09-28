@@ -75,6 +75,10 @@
             
             &.active{
                 transform: rotate(90deg);
+
+                .line{
+                    background-color: #fff;
+                }
             }
         }
 
