@@ -1,7 +1,7 @@
 @use "sass:math";
 
 //公共变量
-$width: 1200px;
+$width: 1400px;
 
 $color: #333;
 
@@ -52,10 +52,10 @@ $color: #333;
     *zoom: 1;
 }
 
-@function get_w($w, $max: 1200, $b: 100){
+@function get_w($w, $max: 1400, $b: 100){
     @return math.div($w, $max) * $b + 0%;
 }
 
-@function get_vw($size, $media: 991) {
+@function get_vw($size, $media: 1920) {
 	@return math.div($size, $media) * 100vw;
 }

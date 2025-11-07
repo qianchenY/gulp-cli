@@ -451,14 +451,11 @@ $('.m-formcountry').country();
 // nav.js
 (function() {
 	// .m-mobilenav start
-	$(".m-mobilenav .mbnav-bd").css({height: $(window).height()});
+	$(".m-mobilenav").click(function(){
+        var _this = $(this),
+            $btn = _this.find(".mbnav-btn");
 
-	$(".m-mobilenav .mbnav-btn").click(function(){
-		if($(this).hasClass("active")){
-			$(this).removeClass("active").next().removeClass("show");
-		}else{
-			$(this).addClass("active").next().addClass("show");
-		}
+		_this.toggleClass("show");
     });
     
     $(".m-mobilenav .nextshow").click(function(e){
@@ -473,6 +470,9 @@ $('.m-formcountry').country();
             _this.text("+");
             _this.next().slideUp();
         }
+    })
+    $(".m-mobilenav .mbnav-fix").click(function(e){
+        e.stopPropagation();
     })
 	// .m-mobilenav end
 })()

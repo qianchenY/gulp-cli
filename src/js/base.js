@@ -236,6 +236,8 @@ $(function(){
                 $item.each(function(){
                     var _this = $(this),
                         $num = parseInt(_this.data("num"));
+
+                    if(!_this.data("num")) return;
                     
                     _this.animate({count: $num}, {
                         duration: 2000,

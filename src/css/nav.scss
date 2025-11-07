@@ -2,39 +2,6 @@
 @use "sass:math";
 @import "./scss_init.scss";
 
-.wap-hd-nav{
-    display: none;
-}
-
-@media screen and (max-width: 991px){
-    
-    .wap-hd-nav{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-start;
-        background-color: $color;
-    }
-
-    .wap-hd-nav-item{
-        width: 25%;
-        
-        a{
-            display: block;
-            padding: 5px 0;
-            line-height: 20px;
-            font-size: 14px;
-            color: white;
-            text-align: center;
-            background-color: #363636;
-
-            &.active{
-                color: white;
-                background-color: $color;
-            }
-        }
-    }
-}
-
 // .m-mobilenav start
 .m-mobilenav{
     display: none;
@@ -49,8 +16,40 @@
         };
         top: 0;
         right: 0;
+        width: 0;
+        height: 0;
         display: block;
         box-sizing: border-box;
+        transition: all 350ms;
+
+        &.show{
+            width: 100%;
+            height: 100%;
+            
+            .mbnav-btn{
+                transform: rotate(90deg);
+
+                .line{
+                    background-color: #fff;
+                }
+            }
+
+            .mbnav-bd{
+                visibility: visible;
+
+                .mbnav-wp{
+                    height: 100%;
+                    opacity: 1;
+                }
+
+                .mbnav-item{
+                    >a{
+                        opacity: 1;
+                        transform: scale(1) translate(0, 0);
+                    }
+                }
+            }
+        }
 
         .mbnav-btn{
             position: absolute;
@@ -72,14 +71,6 @@
                     bottom: 6px;
                 };
             }
-            
-            &.active{
-                transform: rotate(90deg);
-
-                .line{
-                    background-color: #fff;
-                }
-            }
         }
 
         .mbnav-bd{
@@ -91,22 +82,6 @@
             top: 0;
             visibility: hidden;
             z-index: 1;
-            
-            &.show{
-                visibility: visible;
-
-                .mbnav-wp{
-                    height: 100%;
-                    opacity: 1;
-                }
-
-                .mbnav-item{
-                    >a{
-                        opacity: 1;
-                        transform: scale(1) translate(0, 0);
-                    }
-                }
-            }
         }
 
         .mbnav-wp{
@@ -125,10 +100,11 @@
             position: absolute;
             right: 0;
             top: 60px;
-            height: calc(100% - 60px);
+            max-height: calc(100% - 60px);
             width: 100%;
             box-sizing: border-box;
             overflow-y: scroll;
+            overflow-x: hidden;
         }
 
         .mbnav-item{
