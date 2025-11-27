@@ -344,22 +344,6 @@ em,i{
         max-width: 100%; 
         margin: 0 auto;
     }
-    
-    table{ 
-        width:100%; 
-        border-collapse:collapse; 
-        line-height:22px; 
-        border:1px solid #ccc; 
-        margin-left:auto; 
-        margin-right:auto;
-    }
-    
-    table tr td{ 
-        padding:10px; 
-        border:1px solid #ccc; 
-        background:#fff;
-        @include font-size(14);
-    } 
 	
 	@media screen and (max-width: 1440px){
 		@include font-size(14);
@@ -387,9 +371,10 @@ em,i{
 }
 
 .table table tr td{ 
-	padding:10px; 
+	padding:10px 20px; 
 	border:1px solid #ccc;
     word-break: break-word;
+    background-color: #fff;
 }
 
 @media screen and (max-width: 991px){
@@ -410,7 +395,6 @@ em,i{
     @include font-size(18);
     position: relative;
     padding-right: 20px;
-    font-weight: bold;
 
     &:after{
         content: "+";
@@ -425,7 +409,7 @@ em,i{
         }
     }
 
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 991px){
         display: block;
     }
 }
@@ -550,7 +534,8 @@ em,i{
         color: #666;
 
         &:hover{
-            color: $color;
+            text-decoration: underline;
+            text-underline-offset: 5px;
         }
 
     }
@@ -610,7 +595,7 @@ em,i{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     
     a, span{
         margin: {
@@ -620,7 +605,6 @@ em,i{
         };
         @include inline-block();
         min-width: 35px;
-        height: 30px;
         line-height: 28px;
         @include font-size(14);
         color: #333;
@@ -647,6 +631,7 @@ em,i{
 
     .page-form{
         margin-left: 8px;
+        margin-bottom: 5px;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -655,7 +640,6 @@ em,i{
 
     .form-btn{
         min-width: 150px;
-        line-height: 30px;
         height: 30px;
         padding: 0 20px;
         @include font-size(14);
