@@ -344,6 +344,20 @@ em,i{
         max-width: 100%; 
         margin: 0 auto;
     }
+
+    
+    table{ 
+        width:100%; 
+        border-collapse:collapse; 
+        border:1px solid #ccc;
+    }
+
+    table tr td{ 
+        padding:10px 20px; 
+        border:1px solid #ccc;
+        word-break: break-word;
+        background-color: #fff;
+    }
 	
 	@media screen and (max-width: 1440px){
 		@include font-size(14);
@@ -356,38 +370,22 @@ em,i{
 				text-decoration: underline;
 			}
 		}
-		
-		p{
-			min-height: 24px;
-		}
 	}
         
 }    
 
-.table table{ 
-	width:100%; 
-	border-collapse:collapse; 
-	border:1px solid #ccc;
-}
+.table{
+    @media screen and (max-width: 991px){
 
-.table table tr td{ 
-	padding:10px 20px; 
-	border:1px solid #ccc;
-    word-break: break-word;
-    background-color: #fff;
-}
-
-@media screen and (max-width: 991px){
-
-	.table{ 
-		width:100%;  
-		overflow-x:auto;
+        width:100%;  
+        overflow-x:auto;
         
         table{
             min-width: 640px;
         }
-	}
+    }
 }
+
 
 .m-ftname{
     display: none;
@@ -631,7 +629,7 @@ em,i{
 
     .page-form{
         margin-left: 8px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
