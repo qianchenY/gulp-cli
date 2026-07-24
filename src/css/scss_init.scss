@@ -5,6 +5,23 @@ $width: 1400px;
 
 $color: #333;
 
+// 公共方法
+@function strip-unit($value) {
+    @if type-of($value) == 'number' {
+        @return math.div($value, $value * 0 + 1);
+    }
+    @return $value;
+}
+
+@function get_w($w, $max: $width, $b: 100){
+    @return math.div($w, strip-unit($max)) * $b + 0%;
+}
+
+@function get_vw($size, $media: 1920) {
+	@return math.div($size, strip-unit($media)) * 100vw;
+}
+
+// 公共混合宏 (Mixin)
 @mixin float($value: left){
     float: $value;
 }
@@ -50,12 +67,4 @@ $color: #333;
     display: inline-block;
     *display: inline;
     *zoom: 1;
-}
-
-@function get_w($w, $max: $width, $b: 100){
-    @return math.div($w, strip-unit($max)) * $b + 0%;
-}
-
-@function get_vw($size, $media: 1920) {
-	@return math.div($size, strip-unit($media)) * 100vw;
 }
