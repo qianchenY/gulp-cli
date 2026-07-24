@@ -52,10 +52,10 @@ $color: #333;
     *zoom: 1;
 }
 
-@function get_w($w, $max: 1400, $b: 100){
-    @return math.div($w, $max) * $b + 0%;
+@function get_w($w, $max: $width, $b: 100){
+    @return math.div($w, strip-unit($max)) * $b + 0%;
 }
 
 @function get_vw($size, $media: 1920) {
-	@return math.div($size, $media) * 100vw;
+	@return math.div($size, strip-unit($media)) * 100vw;
 }
