@@ -548,6 +548,7 @@ em,i{
 
     .active{
         color: $color;
+        font-weight: normal;
     }
 }
 // .m-crm end
@@ -595,49 +596,44 @@ em,i{
 //.m-page start
 .m-page{
     margin-top: 65px;
-    letter-spacing: 0;
-    font-size: 0;
-    text-align: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     
     a, span{
-        margin: {
-            left: 5px;
-            right: 5px;
-            bottom: 10px;
-        };
-        @include inline-block();
         min-width: 35px;
         line-height: 28px;
         @include font-size(14);
         color: #333;
         text-align: center;
         border: 1px solid #DCDCDC;
-        box-sizing: border-box;
         @include transition;
         padding: 0 5px;
+    }
+
+    a{ 
+        &:hover, &.active{
+            color: white;
+            border-color: $color;
+            background-color: $color;
+        }
     }
 
     .big{
         min-width: 84px;
     }
 
-    a{
-                
-        &:hover, &.active{
-            color: white;
-            border-color: $color;
-            background-color: $color;
-        }
-        
+    .page-wp{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 
     .page-form{
-        margin-left: 8px;
-        margin-bottom: 10px;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -655,24 +651,9 @@ em,i{
     }
 }
 
-.m-page2{
-    position: relative;
-}
-
 @media screen and (max-width: 1440px){
     .m-page{
         margin-top: 35px;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        
-        a, span{
-            margin: {
-                left: 5px;
-                right: 5px;
-                bottom: 10px;
-            };
-        }
     }  
 }
 //.m-page end

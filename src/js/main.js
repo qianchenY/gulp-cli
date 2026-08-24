@@ -472,8 +472,12 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                         a = e;
 
                     n.addClass(s).siblings().removeClass(s);
-                    a.eq(t).show(time).siblings().hide(time)
                     
+                    if(time){
+                        a.eq(t).show(time).siblings().hide(time);
+                    }else{
+                        a.eq(t).show().siblings().hide();
+                    }
                 })
                 n[event](function (i) {
                     i.preventDefault();
@@ -481,7 +485,12 @@ $(function(){if(!placeholderSupport()){$("[placeholder]").focus(function(){var l
                         t = n.index(),
                         a = e;
                     n.addClass(s).siblings().removeClass(s);
-                    a.eq(t).show(time).siblings().hide(time);
+
+                    if(time){
+                        a.eq(t).show(time).siblings().hide(time);
+                    }else{
+                        a.eq(t).show().siblings().hide();
+                    }
                 });
             })
         }
