@@ -193,7 +193,7 @@ em,i{
 
 /* .f-xx start */
 .f-box{
-	width: calc(100% - 200px);
+	width: calc(100% - 100px);
 	max-width: $width;
     margin: {
         left: auto;
@@ -544,6 +544,12 @@ em,i{
             text-underline-offset: 5px;
         }
 
+    }
+
+    h1, h2{
+        display: inline;
+        font-weight: inherit;
+        font-size: inherit;
     }
 
     .active{
