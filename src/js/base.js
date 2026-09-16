@@ -271,4 +271,31 @@ $(function(){
         }
     })
     // .j-sdnav end
+    // .j-faq start
+    $('.j-faq .item-title').click(function(){
+        var _this = $(this);
+
+        if(_this.parent().hasClass("active")){
+            _this.parent().removeClass("active");
+            _this.next().slideUp(300);
+        }else{
+            _this.next().slideDown(300).parent().addClass('active').siblings().removeClass('active').children('.item-desc').slideUp(300);
+        }
+    })
+    
+    $('.j-faq2 .item-title').click(function(){
+        var _this = $(this),
+            $i = _this.parent().index(),
+            $img = _this.parents('.f-box').find('.img-item');
+
+        if(_this.parent().hasClass("active")){
+            _this.parent().removeClass("active");
+            _this.next().slideUp(300);
+        }else{
+            _this.next().slideDown(300).parent().addClass('active').siblings().removeClass('active').children('.item-desc').slideUp(300);
+        }
+
+        $img.eq($i).addClass('show').siblings().removeClass('show');
+    })
+    // .j-faq end
 })
