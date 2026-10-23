@@ -503,36 +503,73 @@ $.fn.extend({
         var n = $(this);
         n.each(function () {
             var _this = $(this),
-                $ul = _this.find('ul'),
-                $input = _this.find('input');
-            
-            _this.click(function(e){
-                $(this).find("ul").show();
-                e.stopPropagation();
-            });
-            
-            $ul.on('mouseover mouseout', 'li' ,function(e){
-                $(this).toggleClass("on");
-                e.stopPropagation();
-            });
-            
-            $ul.on('click', 'li' ,function(e){
-                var _this = $(this),
-                    val = _this.text();
-                if ($input.data('portion') == 'portion') {
-                    if (val.indexOf('--') != -1) 
-                        val = val.substring(0, val.indexOf('--'));
+                $ul = _this.find("ul"),
+                $input = _this.find("input"),
+                countrySource = _this.attr("data-country-src"),
+                loading = false;
+            function filterCountries() {
+                var query = $input.val().toLowerCase(),
+                    matches = 0;
+                $ul.children("li").each(function () {
+                    var match = $(this).text().toLowerCase().indexOf(query) !== -1;
+                    $(this).toggle(match);
+                    if (match) matches++;
+                });
+                $ul.toggle(matches > 0);
+                _this.toggleClass("active", matches > 0);
+            }
+            function loadCountries() {
+                if (!countrySource || loading || $ul.children("li").length) return;
+                loading = true;
+                $.getJSON(countrySource).done(function (countries) {
+                    $.each(countries, function (_, country) {
+                        $("<li>").text(country).appendTo($ul);
+                    });
+                    filterCountries();
+                }).fail(function () {
+                    loading = false;
+                });
+            }
+            _this.click(function (e) {
+                n.not(_this).removeClass("active").find("ul").hide();
+                if (countrySource && !$ul.children("li").length) {
+                    loadCountries();
+                    e.stopPropagation();
+                    return;
                 }
+                if ($ul.is(":visible")) {
+                    $ul.hide();
+                    _this.removeClass("active");
+                } else {
+                    $ul.show();
+                    _this.addClass("active");
+                }
+                e.stopPropagation();
+            });
+            $ul.on("click", "li", function (e) {
+                var $this = $(this),
+                    val = $this.text();
+                if ($input.data("portion") == "portion") {
+                    if (val.indexOf("--") != -1) {
+                        val = val.substring(0, val.indexOf("--"));
+                    }
+                }
+                $this.addClass("on").siblings().removeClass("on");
                 $input.val(val);
                 $ul.hide();
+                _this.removeClass("active");
                 e.stopPropagation();
             });
-            
-            $input.on('input', function(){
+            $input.on("input", function () {
+                if (countrySource) {
+                    loadCountries();
+                    if ($ul.children("li").length) filterCountries();
+                    return;
+                }
                 var count = 0,
                     strValue = $input.val();
                 if (strValue != "") {
-                    $ul.children("li").each(function(i) {
+                    $ul.children("li").each(function (i) {
                         var contentValue = $(this).text();
                         if (contentValue.toLowerCase().indexOf(strValue.toLowerCase()) < 0) {
                             $(this).hide();
@@ -540,27 +577,28 @@ $.fn.extend({
                         } else {
                             $(this).show();
                         }
-                        if (count == (i + 1)) {
+                        if (count == i + 1) {
                             $ul.hide();
+                            _this.removeClass("active");
                         } else {
                             $ul.show();
+                            _this.addClass("active");
                         }
                     });
                 } else {
-                    $ul.children("li").each(function() {
-                        $(this).show();
-                    });
+                    $ul.children("li").show();
+                    $ul.show();
+                    _this.addClass("active");
                 }
-            })
-
+            });
         });
-
-        $(document).click(function(){
-            n.find("ul").hide();
+        $(document).click(function () {
+            n.removeClass("active").find("ul").hide();
         });
     },
 });
-$('.m-formcountry').country();
+$(".m-formcountry").country();
+
 // nav.js
 (function() {
 	// .m-mobilenav start
