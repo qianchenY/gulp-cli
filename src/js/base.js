@@ -92,7 +92,7 @@ $(function(){
     // .g-hd end
 	
 	// lazyload start
-    $(".j-lazy").lazyload({effect: "fadeIn"});
+    $(".j-lazy")?.lazyload({effect: "fadeIn"});
     // lazyload end
 	
 	// baguetteBox start

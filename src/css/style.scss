@@ -209,6 +209,14 @@ em,i{
     }
 }
 
+.f-unitvw{
+    --unit: 1;
+
+    @media screen and (max-width: 1440px){
+        --unit: calc(100vw / 1440px);
+    }
+}
+
 .banner{
     img{
         width: 100%;
