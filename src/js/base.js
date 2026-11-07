@@ -91,16 +91,6 @@ $(function(){
 	})
     // .g-hd end
 	
-	// lazyload start
-    $(".j-lazy")?.lazyload({effect: "fadeIn"});
-    // lazyload end
-	
-	// baguetteBox start
-    baguetteBox.run('.baguetteBoxOne', {
-        animation: 'fadeIn'
-    });     
-    // baguetteBox end
-	
 	// .table start
 	$("table").wrap("<div class='table'></div>");
 	// .table end
@@ -298,4 +288,15 @@ $(function(){
         $img.eq($i).addClass('show').siblings().removeClass('show');
     })
     // .j-faq end
+
+	
+	// lazyload start
+    $(".j-lazy").lazyload({effect: "fadeIn"});
+    // lazyload end
+	
+	// baguetteBox start
+    baguetteBox.run('.baguetteBoxOne', {
+        animation: 'fadeIn'
+    });     
+    // baguetteBox end
 })
