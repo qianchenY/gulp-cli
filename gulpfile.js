@@ -200,13 +200,26 @@ task('build_fonts', ()=>
 // 所有监听
 task('watch_all',
     parallel('build_html', 'build_js', 'build_css', 'build_img', 'build_fonts', (done)=> {
-        watch(SRC_HTML, series('build_html')); // 监听 html
-        watch(SRC_IN_HTML, series('build_in_html')); // 监听 html include
-        watch(SRC_CSS, series('build_css')); // 监听 css
-        watch(SRC_IN_CSS, series('build_in_css')); // 监听 css include
-        watch(SRC_JS, series('build_js')); // 监听 js
-        watch(SRC_IMG, series('build_img')); // 监听 img
-        watch(SRC_FONTS, series('build_fonts')); // 监听 fonts
+        const watchOpts = {
+            awaitWriteFinish: {
+                stabilityThreshold: 300,
+                pollInterval: 100
+            },
+            ignorePermissionErrors: true
+        };
+        const safeWatch = (glob, tasks)=> {
+            watch(glob, watchOpts, tasks).on('error', function (err) {
+                console.error('[Watch Error]', err.message || err);
+            });
+        };
+
+        safeWatch(SRC_HTML, series('build_html')); // 监听 html
+        safeWatch(SRC_IN_HTML, series('build_in_html')); // 监听 html include
+        safeWatch(SRC_CSS, series('build_css')); // 监听 css
+        safeWatch(SRC_IN_CSS, series('build_in_css')); // 监听 css include
+        safeWatch(SRC_JS, series('build_js')); // 监听 js
+        safeWatch(SRC_IMG, series('build_img')); // 监听 img
+        safeWatch(SRC_FONTS, series('build_fonts')); // 监听 fonts
 
         // 监听需要同步的文件夹
         var watcher = watch([SRC_HTML, SRC_JS, SRC_CSS, SRC_IMG, SRC_FONTS]);
