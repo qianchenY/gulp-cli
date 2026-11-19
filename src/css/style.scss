@@ -679,7 +679,8 @@ em,i{
     position: fixed;
     z-index: 10;
     right: 0;
-    top: 30%;
+    top: 50%;
+    transform: translateY(-50%);
 
     .kf-item{
 		position: relative;
@@ -721,6 +722,7 @@ em,i{
         right: 0;
         top: auto;
         bottom: 0;
+        transform: none;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;
